@@ -28,7 +28,6 @@ import java.util.NoSuchElementException;
 import java.util.Set;
 import java.util.function.BiPredicate;
 
-import static io.netty.util.HashingStrategy.JAVA_HASHER;
 import static io.netty.util.internal.MathUtil.findNextPositivePowerOfTwo;
 import static io.netty.util.internal.ObjectUtil.checkNotNull;
 import static java.lang.Math.max;
@@ -92,12 +91,12 @@ public class DefaultHeaders<K, V, T extends Headers<K, V, T>> implements Headers
 
     @SuppressWarnings("unchecked")
     public DefaultHeaders(ValueConverter<V> valueConverter) {
-        this(JAVA_HASHER, valueConverter);
+        this(HashingStrategy.javaHasher(), valueConverter);
     }
 
     @SuppressWarnings("unchecked")
     public DefaultHeaders(ValueConverter<V> valueConverter, NameValidator<K> nameValidator) {
-        this(JAVA_HASHER, valueConverter, nameValidator);
+        this(HashingStrategy.javaHasher(), valueConverter, nameValidator);
     }
 
     @SuppressWarnings("unchecked")
@@ -310,7 +309,7 @@ public class DefaultHeaders<K, V, T extends Headers<K, V, T>> implements Headers
     @SuppressWarnings("unchecked")
     @Override
     public boolean contains(K name, V value) {
-        return contains(name, value, JAVA_HASHER);
+        return contains(name, value, HashingStrategy.javaHasher());
     }
 
     public final boolean contains(K name, V value, HashingStrategy<? super V> valueHashingStrategy) {
@@ -966,13 +965,13 @@ public class DefaultHeaders<K, V, T extends Headers<K, V, T>> implements Headers
             return false;
         }
 
-        return equals((Headers<K, V, ?>) o, JAVA_HASHER);
+        return equals((Headers<K, V, ?>) o, HashingStrategy.javaHasher());
     }
 
     @SuppressWarnings("unchecked")
     @Override
     public int hashCode() {
-        return hashCode(JAVA_HASHER);
+        return hashCode(HashingStrategy.javaHasher());
     }
 
     /**

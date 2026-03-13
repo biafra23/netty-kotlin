@@ -18,6 +18,8 @@ package io.netty.buffer;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.function.Executable;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -104,11 +106,17 @@ public class ReadOnlyByteBufTest {
         when(buf.writerIndex()).thenReturn(0);
         when(buf.capacity()).thenReturn(0);
 
-        when(buf.getBytes(1, (GatheringByteChannel) null, 2)).thenReturn(3);
-        when(buf.getBytes(4, (OutputStream) null, 5)).thenReturn(buf);
-        when(buf.getBytes(6, (byte[]) null, 7, 8)).thenReturn(buf);
-        when(buf.getBytes(9, (ByteBuf) null, 10, 11)).thenReturn(buf);
-        when(buf.getBytes(12, (ByteBuffer) null)).thenReturn(buf);
+        GatheringByteChannel mockChannel = mock(GatheringByteChannel.class);
+        OutputStream mockOutputStream = mock(OutputStream.class);
+        byte[] dstBytes = new byte[8];
+        ByteBuf dstBuf = mock(ByteBuf.class);
+        ByteBuffer dstByteBuffer = ByteBuffer.allocate(8);
+
+        when(buf.getBytes(1, mockChannel, 2)).thenReturn(3);
+        when(buf.getBytes(4, mockOutputStream, 5)).thenReturn(buf);
+        when(buf.getBytes(6, dstBytes, 7, 8)).thenReturn(buf);
+        when(buf.getBytes(9, dstBuf, 10, 11)).thenReturn(buf);
+        when(buf.getBytes(12, dstByteBuffer)).thenReturn(buf);
         when(buf.getByte(13)).thenReturn(Byte.valueOf((byte) 14));
         when(buf.getShort(15)).thenReturn(Short.valueOf((short) 16));
         when(buf.getUnsignedMedium(17)).thenReturn(18);
@@ -121,11 +129,11 @@ public class ReadOnlyByteBufTest {
         when(buf.capacity()).thenReturn(27);
 
         ByteBuf roBuf = unmodifiableBuffer(buf);
-        assertEquals(3, roBuf.getBytes(1, (GatheringByteChannel) null, 2));
-        roBuf.getBytes(4, (OutputStream) null, 5);
-        roBuf.getBytes(6, (byte[]) null, 7, 8);
-        roBuf.getBytes(9, (ByteBuf) null, 10, 11);
-        roBuf.getBytes(12, (ByteBuffer) null);
+        assertEquals(3, roBuf.getBytes(1, mockChannel, 2));
+        roBuf.getBytes(4, mockOutputStream, 5);
+        roBuf.getBytes(6, dstBytes, 7, 8);
+        roBuf.getBytes(9, dstBuf, 10, 11);
+        roBuf.getBytes(12, dstByteBuffer);
         assertEquals((byte) 14, roBuf.getByte(13));
         assertEquals((short) 16, roBuf.getShort(15));
         assertEquals(18, roBuf.getUnsignedMedium(17));
@@ -204,7 +212,7 @@ public class ReadOnlyByteBufTest {
         assertThrows(UnsupportedOperationException.class, new Executable() {
             @Override
             public void execute() throws IOException {
-                unmodifiableBuffer(EMPTY_BUFFER).setBytes(0, (InputStream) null, 0);
+                unmodifiableBuffer(EMPTY_BUFFER).setBytes(0, new ByteArrayInputStream(new byte[0]), 0);
             }
         });
     }
@@ -214,7 +222,7 @@ public class ReadOnlyByteBufTest {
         assertThrows(UnsupportedOperationException.class, new Executable() {
             @Override
             public void execute() throws IOException {
-                unmodifiableBuffer(EMPTY_BUFFER).setBytes(0, (ScatteringByteChannel) null, 0);
+                unmodifiableBuffer(EMPTY_BUFFER).setBytes(0, mock(ScatteringByteChannel.class), 0);
             }
         });
     }
@@ -224,7 +232,7 @@ public class ReadOnlyByteBufTest {
         assertThrows(UnsupportedOperationException.class, new Executable() {
             @Override
             public void execute() throws IOException {
-                unmodifiableBuffer(EMPTY_BUFFER).setBytes(0, (byte[]) null, 0, 0);
+                unmodifiableBuffer(EMPTY_BUFFER).setBytes(0, new byte[0], 0, 0);
             }
         });
     }
@@ -234,7 +242,7 @@ public class ReadOnlyByteBufTest {
         assertThrows(UnsupportedOperationException.class, new Executable() {
             @Override
             public void execute() {
-                unmodifiableBuffer(EMPTY_BUFFER).setBytes(0, (ByteBuf) null, 0, 0);
+                unmodifiableBuffer(EMPTY_BUFFER).setBytes(0, EMPTY_BUFFER, 0, 0);
             }
         });
     }
@@ -244,7 +252,7 @@ public class ReadOnlyByteBufTest {
         assertThrows(UnsupportedOperationException.class, new Executable() {
             @Override
             public void execute() {
-                unmodifiableBuffer(EMPTY_BUFFER).setBytes(0, (ByteBuffer) null);
+                unmodifiableBuffer(EMPTY_BUFFER).setBytes(0, ByteBuffer.allocate(0));
             }
         });
     }

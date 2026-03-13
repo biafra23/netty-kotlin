@@ -1,0 +1,169 @@
+/*
+ * Copyright 2013 The Netty Project
+ *
+ * The Netty Project licenses this file to you under the Apache License,
+ * version 2.0 (the "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at:
+ *
+ *   https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ */
+package io.netty.util.concurrent
+
+import java.util.concurrent.CancellationException
+import java.util.concurrent.TimeUnit
+
+/**
+ * The result of an asynchronous operation.
+ */
+@Suppress("ClassNameSameAsAncestorName")
+interface Future<V> : java.util.concurrent.Future<V> {
+
+    /**
+     * Returns `true` if and only if the I/O operation was completed
+     * successfully.
+     */
+    fun isSuccess(): Boolean
+
+    /**
+     * Returns `true` if and only if the operation can be cancelled via [cancel].
+     */
+    fun isCancellable(): Boolean
+
+    /**
+     * Returns the cause of the failed I/O operation if the I/O operation has
+     * failed.
+     *
+     * @return the cause of the failure.
+     *         `null` if succeeded or this future is not
+     *         completed yet.
+     */
+    fun cause(): Throwable?
+
+    /**
+     * Adds the specified listener to this future. The
+     * specified listener is notified when this future is
+     * [done][isDone]. If this future is already
+     * completed, the specified listener is notified immediately.
+     */
+    fun addListener(listener: GenericFutureListener<out Future<in V>>): Future<V>
+
+    /**
+     * Adds the specified listeners to this future. The
+     * specified listeners are notified when this future is
+     * [done][isDone]. If this future is already
+     * completed, the specified listeners are notified immediately.
+     */
+    fun addListeners(vararg listeners: GenericFutureListener<out Future<in V>>): Future<V>
+
+    /**
+     * Removes the first occurrence of the specified listener from this future.
+     * The specified listener is no longer notified when this
+     * future is [done][isDone]. If the specified
+     * listener is not associated with this future, this method
+     * does nothing and returns silently.
+     */
+    fun removeListener(listener: GenericFutureListener<out Future<in V>>): Future<V>
+
+    /**
+     * Removes the first occurrence for each of the listeners from this future.
+     * The specified listeners are no longer notified when this
+     * future is [done][isDone]. If the specified
+     * listeners are not associated with this future, this method
+     * does nothing and returns silently.
+     */
+    fun removeListeners(vararg listeners: GenericFutureListener<out Future<in V>>): Future<V>
+
+    /**
+     * Waits for this future until it is done, and rethrows the cause of the failure if this future
+     * failed.
+     */
+    @Throws(InterruptedException::class)
+    fun sync(): Future<V>
+
+    /**
+     * Waits for this future until it is done, and rethrows the cause of the failure if this future
+     * failed.
+     */
+    fun syncUninterruptibly(): Future<V>
+
+    /**
+     * Waits for this future to be completed.
+     *
+     * @throws InterruptedException
+     *         if the current thread was interrupted
+     */
+    @Throws(InterruptedException::class)
+    fun await(): Future<V>
+
+    /**
+     * Waits for this future to be completed without
+     * interruption. This method catches an [InterruptedException] and
+     * discards it silently.
+     */
+    fun awaitUninterruptibly(): Future<V>
+
+    /**
+     * Waits for this future to be completed within the
+     * specified time limit.
+     *
+     * @return `true` if and only if the future was completed within
+     *         the specified time limit
+     *
+     * @throws InterruptedException
+     *         if the current thread was interrupted
+     */
+    @Throws(InterruptedException::class)
+    fun await(timeout: Long, unit: TimeUnit): Boolean
+
+    /**
+     * Waits for this future to be completed within the
+     * specified time limit.
+     *
+     * @return `true` if and only if the future was completed within
+     *         the specified time limit
+     *
+     * @throws InterruptedException
+     *         if the current thread was interrupted
+     */
+    @Throws(InterruptedException::class)
+    fun await(timeoutMillis: Long): Boolean
+
+    /**
+     * Waits for this future to be completed within the
+     * specified time limit without interruption. This method catches an
+     * [InterruptedException] and discards it silently.
+     *
+     * @return `true` if and only if the future was completed within
+     *         the specified time limit
+     */
+    fun awaitUninterruptibly(timeout: Long, unit: TimeUnit): Boolean
+
+    /**
+     * Waits for this future to be completed within the
+     * specified time limit without interruption. This method catches an
+     * [InterruptedException] and discards it silently.
+     *
+     * @return `true` if and only if the future was completed within
+     *         the specified time limit
+     */
+    fun awaitUninterruptibly(timeoutMillis: Long): Boolean
+
+    /**
+     * Return the result without blocking. If the future is not done yet this will return `null`.
+     *
+     * As it is possible that a `null` value is used to mark the future as successful you also need to check
+     * if the future is really done with [isDone] and not rely on the returned `null` value.
+     */
+    fun getNow(): V?
+
+    /**
+     * If the cancellation was successful it will fail the future with a [CancellationException].
+     */
+    override fun cancel(mayInterruptIfRunning: Boolean): Boolean
+}

@@ -1,0 +1,38 @@
+/*
+ * Copyright 2016 The Netty Project
+ *
+ * The Netty Project licenses this file to you under the Apache License,
+ * version 2.0 (the "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at:
+ *
+ *   https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ */
+package io.netty.util.internal
+
+/**
+ * Indicates a public API that can change at any time (even in minor/bugfix releases).
+ *
+ * Usage guidelines:
+ *
+ * 1. Is not needed for things located in `*.internal.*` packages
+ * 2. Only public accessible classes/interfaces must be annotated
+ * 3. If this annotation is not present the API is considered stable and so no backward compatibility can be
+ *    broken in a non-major release!
+ */
+@Retention(AnnotationRetention.SOURCE) // TODO Retention policy needs to be CLASS in Netty 5.
+@Target(
+    AnnotationTarget.ANNOTATION_CLASS,
+    AnnotationTarget.CONSTRUCTOR,
+    AnnotationTarget.FIELD,
+    AnnotationTarget.FUNCTION,
+    AnnotationTarget.FILE,
+    AnnotationTarget.CLASS
+)
+@MustBeDocumented
+annotation class UnstableApi
