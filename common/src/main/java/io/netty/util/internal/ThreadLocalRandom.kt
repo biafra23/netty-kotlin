@@ -102,7 +102,7 @@ class ThreadLocalRandom internal constructor() : Random(newSeed()) {
      * @throws IllegalArgumentException if least greater than or equal to bound
      * @return the next value
      */
-    override fun nextInt(least: Int, bound: Int): Int {
+    fun nextInt(least: Int, bound: Int): Int {
         if (least >= bound) {
             throw IllegalArgumentException()
         }
@@ -117,7 +117,7 @@ class ThreadLocalRandom internal constructor() : Random(newSeed()) {
      * @return the next value
      * @throws IllegalArgumentException if n is not positive
      */
-    override fun nextLong(n: Long): Long {
+    fun nextLong(n: Long): Long {
         checkPositive(n, "n")
 
         @Suppress("NAME_SHADOWING")
@@ -144,7 +144,7 @@ class ThreadLocalRandom internal constructor() : Random(newSeed()) {
      * @return the next value
      * @throws IllegalArgumentException if least greater than or equal to bound
      */
-    override fun nextLong(least: Long, bound: Long): Long {
+    fun nextLong(least: Long, bound: Long): Long {
         if (least >= bound) {
             throw IllegalArgumentException()
         }
@@ -159,7 +159,7 @@ class ThreadLocalRandom internal constructor() : Random(newSeed()) {
      * @return the next value
      * @throws IllegalArgumentException if n is not positive
      */
-    override fun nextDouble(n: Double): Double {
+    fun nextDouble(n: Double): Double {
         checkPositive(n, "n")
         return nextDouble() * n
     }
@@ -173,7 +173,7 @@ class ThreadLocalRandom internal constructor() : Random(newSeed()) {
      * @return the next value
      * @throws IllegalArgumentException if least greater than or equal to bound
      */
-    override fun nextDouble(least: Double, bound: Double): Double {
+    fun nextDouble(least: Double, bound: Double): Double {
         if (least >= bound) {
             throw IllegalArgumentException()
         }

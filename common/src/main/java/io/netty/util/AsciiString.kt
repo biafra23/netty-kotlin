@@ -333,7 +333,7 @@ class AsciiString : CharSequence, Comparable<CharSequence> {
     /**
      * Determine if this instance has 0 length.
      */
-    override fun isEmpty(): Boolean {
+    fun isEmpty(): Boolean {
         return length == 0
     }
 
