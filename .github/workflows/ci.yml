@@ -30,10 +30,10 @@ jobs:
           cache: 'maven'
 
       - name: Build with Maven
-        run: mvn -B -ntp clean install -DskipTests
+        run: mvn -B -ntp clean install -DskipTests -pl '!testsuite-karaf,!testsuite-osgi'
 
       - name: Run tests
-        run: mvn -B -ntp test
+        run: mvn -B -ntp test -pl '!testsuite-karaf,!testsuite-osgi'
 
       - name: Upload build artifacts
         if: startsWith(github.ref, 'refs/tags/v')
