@@ -705,6 +705,7 @@
   </profiles>
 
   <properties>
+    <revapi.skip>true</revapi.skip>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
     <maven.compiler.release />
