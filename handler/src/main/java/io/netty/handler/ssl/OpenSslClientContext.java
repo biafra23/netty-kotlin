@@ -181,7 +181,8 @@ public final class OpenSslClientContext extends OpenSslContext {
         this(toX509CertificatesInternal(trustCertCollectionFile), trustManagerFactory,
                 toX509CertificatesInternal(keyCertChainFile), toPrivateKeyInternal(keyFile, keyPassword),
                 keyPassword, keyManagerFactory, ciphers, cipherFilter, apn, null, sessionCacheSize,
-                sessionTimeout, false, KeyStore.getDefaultType(), null, null, null, EMPTY_MAP_ENTRY, null);
+                sessionTimeout, false, KeyStore.getDefaultType(), null, null, null,
+                (Map.Entry<SslContextOption<?>, Object>[]) EMPTY_MAP_ENTRY, null);
     }
 
     OpenSslClientContext(X509Certificate[] trustCertCollection, TrustManagerFactory trustManagerFactory,

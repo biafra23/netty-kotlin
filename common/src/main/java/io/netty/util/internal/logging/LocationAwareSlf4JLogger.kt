@@ -56,31 +56,31 @@ internal class LocationAwareSlf4JLogger(
 
     override fun isTraceEnabled(): Boolean = logger.isTraceEnabled
 
-    override fun trace(msg: String) {
+    override fun trace(msg: String?) {
         if (isTraceEnabled()) {
             log(TRACE_INT, msg)
         }
     }
 
-    override fun trace(format: String, arg: Any) {
+    override fun trace(format: String?, arg: Any?) {
         if (isTraceEnabled()) {
             log(TRACE_INT, MessageFormatter.format(format, arg))
         }
     }
 
-    override fun trace(format: String, argA: Any, argB: Any) {
+    override fun trace(format: String?, argA: Any?, argB: Any?) {
         if (isTraceEnabled()) {
             log(TRACE_INT, MessageFormatter.format(format, argA, argB))
         }
     }
 
-    override fun trace(format: String, vararg argArray: Any) {
+    override fun trace(format: String?, vararg argArray: Any?) {
         if (isTraceEnabled()) {
             log(TRACE_INT, MessageFormatter.arrayFormat(format, argArray))
         }
     }
 
-    override fun trace(msg: String, t: Throwable) {
+    override fun trace(msg: String?, t: Throwable?) {
         if (isTraceEnabled()) {
             log(TRACE_INT, msg, t)
         }
@@ -88,31 +88,31 @@ internal class LocationAwareSlf4JLogger(
 
     override fun isDebugEnabled(): Boolean = logger.isDebugEnabled
 
-    override fun debug(msg: String) {
+    override fun debug(msg: String?) {
         if (isDebugEnabled()) {
             log(DEBUG_INT, msg)
         }
     }
 
-    override fun debug(format: String, arg: Any) {
+    override fun debug(format: String?, arg: Any?) {
         if (isDebugEnabled()) {
             log(DEBUG_INT, MessageFormatter.format(format, arg))
         }
     }
 
-    override fun debug(format: String, argA: Any, argB: Any) {
+    override fun debug(format: String?, argA: Any?, argB: Any?) {
         if (isDebugEnabled()) {
             log(DEBUG_INT, MessageFormatter.format(format, argA, argB))
         }
     }
 
-    override fun debug(format: String, vararg argArray: Any) {
+    override fun debug(format: String?, vararg argArray: Any?) {
         if (isDebugEnabled()) {
             log(DEBUG_INT, MessageFormatter.arrayFormat(format, argArray))
         }
     }
 
-    override fun debug(msg: String, t: Throwable) {
+    override fun debug(msg: String?, t: Throwable?) {
         if (isDebugEnabled()) {
             log(DEBUG_INT, msg, t)
         }
@@ -120,31 +120,31 @@ internal class LocationAwareSlf4JLogger(
 
     override fun isInfoEnabled(): Boolean = logger.isInfoEnabled
 
-    override fun info(msg: String) {
+    override fun info(msg: String?) {
         if (isInfoEnabled()) {
             log(INFO_INT, msg)
         }
     }
 
-    override fun info(format: String, arg: Any) {
+    override fun info(format: String?, arg: Any?) {
         if (isInfoEnabled()) {
             log(INFO_INT, MessageFormatter.format(format, arg))
         }
     }
 
-    override fun info(format: String, argA: Any, argB: Any) {
+    override fun info(format: String?, argA: Any?, argB: Any?) {
         if (isInfoEnabled()) {
             log(INFO_INT, MessageFormatter.format(format, argA, argB))
         }
     }
 
-    override fun info(format: String, vararg argArray: Any) {
+    override fun info(format: String?, vararg argArray: Any?) {
         if (isInfoEnabled()) {
             log(INFO_INT, MessageFormatter.arrayFormat(format, argArray))
         }
     }
 
-    override fun info(msg: String, t: Throwable) {
+    override fun info(msg: String?, t: Throwable?) {
         if (isInfoEnabled()) {
             log(INFO_INT, msg, t)
         }
@@ -152,31 +152,31 @@ internal class LocationAwareSlf4JLogger(
 
     override fun isWarnEnabled(): Boolean = logger.isWarnEnabled
 
-    override fun warn(msg: String) {
+    override fun warn(msg: String?) {
         if (isWarnEnabled()) {
             log(WARN_INT, msg)
         }
     }
 
-    override fun warn(format: String, arg: Any) {
+    override fun warn(format: String?, arg: Any?) {
         if (isWarnEnabled()) {
             log(WARN_INT, MessageFormatter.format(format, arg))
         }
     }
 
-    override fun warn(format: String, vararg argArray: Any) {
+    override fun warn(format: String?, vararg argArray: Any?) {
         if (isWarnEnabled()) {
             log(WARN_INT, MessageFormatter.arrayFormat(format, argArray))
         }
     }
 
-    override fun warn(format: String, argA: Any, argB: Any) {
+    override fun warn(format: String?, argA: Any?, argB: Any?) {
         if (isWarnEnabled()) {
             log(WARN_INT, MessageFormatter.format(format, argA, argB))
         }
     }
 
-    override fun warn(msg: String, t: Throwable) {
+    override fun warn(msg: String?, t: Throwable?) {
         if (isWarnEnabled()) {
             log(WARN_INT, msg, t)
         }
@@ -184,31 +184,31 @@ internal class LocationAwareSlf4JLogger(
 
     override fun isErrorEnabled(): Boolean = logger.isErrorEnabled
 
-    override fun error(msg: String) {
+    override fun error(msg: String?) {
         if (isErrorEnabled()) {
             log(ERROR_INT, msg)
         }
     }
 
-    override fun error(format: String, arg: Any) {
+    override fun error(format: String?, arg: Any?) {
         if (isErrorEnabled()) {
             log(ERROR_INT, MessageFormatter.format(format, arg))
         }
     }
 
-    override fun error(format: String, argA: Any, argB: Any) {
+    override fun error(format: String?, argA: Any?, argB: Any?) {
         if (isErrorEnabled()) {
             log(ERROR_INT, MessageFormatter.format(format, argA, argB))
         }
     }
 
-    override fun error(format: String, vararg argArray: Any) {
+    override fun error(format: String?, vararg argArray: Any?) {
         if (isErrorEnabled()) {
             log(ERROR_INT, MessageFormatter.arrayFormat(format, argArray))
         }
     }
 
-    override fun error(msg: String, t: Throwable) {
+    override fun error(msg: String?, t: Throwable?) {
         if (isErrorEnabled()) {
             log(ERROR_INT, msg, t)
         }

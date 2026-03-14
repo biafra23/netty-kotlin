@@ -181,7 +181,7 @@ object SocketUtils {
 
     @JvmStatic
     @Throws(SocketException::class)
-    fun hardwareAddressFromNetworkInterface(intf: NetworkInterface): ByteArray {
+    fun hardwareAddressFromNetworkInterface(intf: NetworkInterface): ByteArray? {
         try {
             return AccessController.doPrivileged(PrivilegedExceptionAction {
                 intf.hardwareAddress

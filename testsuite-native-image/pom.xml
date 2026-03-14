@@ -18,9 +18,9 @@
 
   <modelVersion>4.0.0</modelVersion>
   <parent>
-    <groupId>io.netty</groupId>
-    <artifactId>netty-parent</artifactId>
-    <version>4.2.11.Final-SNAPSHOT</version>
+    <groupId>com.jaeckel</groupId>
+    <artifactId>netty-kotlin</artifactId>
+    <version>1.0-SNAPSHOT</version>
   </parent>
 
   <artifactId>netty-testsuite-native-image</artifactId>
@@ -65,17 +65,17 @@
       <version>${project.version}</version>
     </dependency>
     <dependency>
-      <groupId>io.netty</groupId>
+      <groupId>com.jaeckel</groupId>
       <artifactId>netty-transport-classes-epoll</artifactId>
       <version>${project.version}</version>
     </dependency>
     <dependency>
-      <groupId>io.netty</groupId>
+      <groupId>com.jaeckel</groupId>
       <artifactId>netty-transport-classes-io_uring</artifactId>
       <version>${project.version}</version>
     </dependency>
     <dependency>
-      <groupId>io.netty</groupId>
+      <groupId>com.jaeckel</groupId>
       <artifactId>netty-codec-classes-quic</artifactId>
       <version>${project.version}</version>
     </dependency>
@@ -126,14 +126,14 @@
       </activation>
       <dependencies>
         <dependency>
-          <groupId>io.netty</groupId>
+          <groupId>com.jaeckel</groupId>
           <artifactId>netty-transport-native-epoll</artifactId>
           <version>${project.version}</version>
           <classifier>${native.classifier}</classifier>
           <scope>runtime</scope>
         </dependency>
         <dependency>
-          <groupId>io.netty</groupId>
+          <groupId>com.jaeckel</groupId>
           <artifactId>netty-transport-native-io_uring</artifactId>
           <version>${project.version}</version>
           <classifier>${native.classifier}</classifier>

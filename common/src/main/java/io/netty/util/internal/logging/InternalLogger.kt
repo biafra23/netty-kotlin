@@ -67,7 +67,7 @@ interface InternalLogger {
      *
      * @param msg the message string to be logged
      */
-    fun trace(msg: String)
+    fun trace(msg: String?)
 
     /**
      * Log a message at the TRACE level according to the specified format
@@ -79,7 +79,7 @@ interface InternalLogger {
      * @param format the format string
      * @param arg    the argument
      */
-    fun trace(format: String, arg: Any)
+    fun trace(format: String?, arg: Any?)
 
     /**
      * Log a message at the TRACE level according to the specified format
@@ -92,7 +92,7 @@ interface InternalLogger {
      * @param argA   the first argument
      * @param argB   the second argument
      */
-    fun trace(format: String, argA: Any, argB: Any)
+    fun trace(format: String?, argA: Any?, argB: Any?)
 
     /**
      * Log a message at the TRACE level according to the specified format
@@ -107,7 +107,7 @@ interface InternalLogger {
      * @param format    the format string
      * @param arguments a list of 3 or more arguments
      */
-    fun trace(format: String, vararg arguments: Any)
+    fun trace(format: String?, vararg arguments: Any?)
 
     /**
      * Log an exception (throwable) at the TRACE level with an
@@ -116,14 +116,14 @@ interface InternalLogger {
      * @param msg the message accompanying the exception
      * @param t   the exception (throwable) to log
      */
-    fun trace(msg: String, t: Throwable)
+    fun trace(msg: String?, t: Throwable?)
 
     /**
      * Log an exception (throwable) at the TRACE level.
      *
      * @param t the exception (throwable) to log
      */
-    fun trace(t: Throwable)
+    fun trace(t: Throwable?)
 
     // --- DEBUG ---
 
@@ -140,7 +140,7 @@ interface InternalLogger {
      *
      * @param msg the message string to be logged
      */
-    fun debug(msg: String)
+    fun debug(msg: String?)
 
     /**
      * Log a message at the DEBUG level according to the specified format
@@ -152,7 +152,7 @@ interface InternalLogger {
      * @param format the format string
      * @param arg    the argument
      */
-    fun debug(format: String, arg: Any)
+    fun debug(format: String?, arg: Any?)
 
     /**
      * Log a message at the DEBUG level according to the specified format
@@ -165,7 +165,7 @@ interface InternalLogger {
      * @param argA   the first argument
      * @param argB   the second argument
      */
-    fun debug(format: String, argA: Any, argB: Any)
+    fun debug(format: String?, argA: Any?, argB: Any?)
 
     /**
      * Log a message at the DEBUG level according to the specified format
@@ -180,7 +180,7 @@ interface InternalLogger {
      * @param format    the format string
      * @param arguments a list of 3 or more arguments
      */
-    fun debug(format: String, vararg arguments: Any)
+    fun debug(format: String?, vararg arguments: Any?)
 
     /**
      * Log an exception (throwable) at the DEBUG level with an
@@ -189,14 +189,14 @@ interface InternalLogger {
      * @param msg the message accompanying the exception
      * @param t   the exception (throwable) to log
      */
-    fun debug(msg: String, t: Throwable)
+    fun debug(msg: String?, t: Throwable?)
 
     /**
      * Log an exception (throwable) at the DEBUG level.
      *
      * @param t the exception (throwable) to log
      */
-    fun debug(t: Throwable)
+    fun debug(t: Throwable?)
 
     // --- INFO ---
 
@@ -213,7 +213,7 @@ interface InternalLogger {
      *
      * @param msg the message string to be logged
      */
-    fun info(msg: String)
+    fun info(msg: String?)
 
     /**
      * Log a message at the INFO level according to the specified format
@@ -225,7 +225,7 @@ interface InternalLogger {
      * @param format the format string
      * @param arg    the argument
      */
-    fun info(format: String, arg: Any)
+    fun info(format: String?, arg: Any?)
 
     /**
      * Log a message at the INFO level according to the specified format
@@ -238,7 +238,7 @@ interface InternalLogger {
      * @param argA   the first argument
      * @param argB   the second argument
      */
-    fun info(format: String, argA: Any, argB: Any)
+    fun info(format: String?, argA: Any?, argB: Any?)
 
     /**
      * Log a message at the INFO level according to the specified format
@@ -253,7 +253,7 @@ interface InternalLogger {
      * @param format    the format string
      * @param arguments a list of 3 or more arguments
      */
-    fun info(format: String, vararg arguments: Any)
+    fun info(format: String?, vararg arguments: Any?)
 
     /**
      * Log an exception (throwable) at the INFO level with an
@@ -262,14 +262,14 @@ interface InternalLogger {
      * @param msg the message accompanying the exception
      * @param t   the exception (throwable) to log
      */
-    fun info(msg: String, t: Throwable)
+    fun info(msg: String?, t: Throwable?)
 
     /**
      * Log an exception (throwable) at the INFO level.
      *
      * @param t the exception (throwable) to log
      */
-    fun info(t: Throwable)
+    fun info(t: Throwable?)
 
     // --- WARN ---
 
@@ -286,7 +286,7 @@ interface InternalLogger {
      *
      * @param msg the message string to be logged
      */
-    fun warn(msg: String)
+    fun warn(msg: String?)
 
     /**
      * Log a message at the WARN level according to the specified format
@@ -298,7 +298,7 @@ interface InternalLogger {
      * @param format the format string
      * @param arg    the argument
      */
-    fun warn(format: String, arg: Any)
+    fun warn(format: String?, arg: Any?)
 
     /**
      * Log a message at the WARN level according to the specified format
@@ -311,7 +311,7 @@ interface InternalLogger {
      * @param argA   the first argument
      * @param argB   the second argument
      */
-    fun warn(format: String, argA: Any, argB: Any)
+    fun warn(format: String?, argA: Any?, argB: Any?)
 
     /**
      * Log a message at the WARN level according to the specified format
@@ -326,7 +326,7 @@ interface InternalLogger {
      * @param format    the format string
      * @param arguments a list of 3 or more arguments
      */
-    fun warn(format: String, vararg arguments: Any)
+    fun warn(format: String?, vararg arguments: Any?)
 
     /**
      * Log an exception (throwable) at the WARN level with an
@@ -335,14 +335,14 @@ interface InternalLogger {
      * @param msg the message accompanying the exception
      * @param t   the exception (throwable) to log
      */
-    fun warn(msg: String, t: Throwable)
+    fun warn(msg: String?, t: Throwable?)
 
     /**
      * Log an exception (throwable) at the WARN level.
      *
      * @param t the exception (throwable) to log
      */
-    fun warn(t: Throwable)
+    fun warn(t: Throwable?)
 
     // --- ERROR ---
 
@@ -359,7 +359,7 @@ interface InternalLogger {
      *
      * @param msg the message string to be logged
      */
-    fun error(msg: String)
+    fun error(msg: String?)
 
     /**
      * Log a message at the ERROR level according to the specified format
@@ -371,7 +371,7 @@ interface InternalLogger {
      * @param format the format string
      * @param arg    the argument
      */
-    fun error(format: String, arg: Any)
+    fun error(format: String?, arg: Any?)
 
     /**
      * Log a message at the ERROR level according to the specified format
@@ -384,7 +384,7 @@ interface InternalLogger {
      * @param argA   the first argument
      * @param argB   the second argument
      */
-    fun error(format: String, argA: Any, argB: Any)
+    fun error(format: String?, argA: Any?, argB: Any?)
 
     /**
      * Log a message at the ERROR level according to the specified format
@@ -399,7 +399,7 @@ interface InternalLogger {
      * @param format    the format string
      * @param arguments a list of 3 or more arguments
      */
-    fun error(format: String, vararg arguments: Any)
+    fun error(format: String?, vararg arguments: Any?)
 
     /**
      * Log an exception (throwable) at the ERROR level with an
@@ -408,14 +408,14 @@ interface InternalLogger {
      * @param msg the message accompanying the exception
      * @param t   the exception (throwable) to log
      */
-    fun error(msg: String, t: Throwable)
+    fun error(msg: String?, t: Throwable?)
 
     /**
      * Log an exception (throwable) at the ERROR level.
      *
      * @param t the exception (throwable) to log
      */
-    fun error(t: Throwable)
+    fun error(t: Throwable?)
 
     // --- Generic level methods ---
 
@@ -432,7 +432,7 @@ interface InternalLogger {
      *
      * @param msg the message string to be logged
      */
-    fun log(level: InternalLogLevel, msg: String)
+    fun log(level: InternalLogLevel, msg: String?)
 
     /**
      * Log a message at the specified [level] according to the specified format
@@ -444,7 +444,7 @@ interface InternalLogger {
      * @param format the format string
      * @param arg    the argument
      */
-    fun log(level: InternalLogLevel, format: String, arg: Any)
+    fun log(level: InternalLogLevel, format: String?, arg: Any?)
 
     /**
      * Log a message at the specified [level] according to the specified format
@@ -457,7 +457,7 @@ interface InternalLogger {
      * @param argA   the first argument
      * @param argB   the second argument
      */
-    fun log(level: InternalLogLevel, format: String, argA: Any, argB: Any)
+    fun log(level: InternalLogLevel, format: String?, argA: Any?, argB: Any?)
 
     /**
      * Log a message at the specified [level] according to the specified format
@@ -472,7 +472,7 @@ interface InternalLogger {
      * @param format    the format string
      * @param arguments a list of 3 or more arguments
      */
-    fun log(level: InternalLogLevel, format: String, vararg arguments: Any)
+    fun log(level: InternalLogLevel, format: String?, vararg arguments: Any?)
 
     /**
      * Log an exception (throwable) at the specified [level] with an
@@ -481,12 +481,12 @@ interface InternalLogger {
      * @param msg the message accompanying the exception
      * @param t   the exception (throwable) to log
      */
-    fun log(level: InternalLogLevel, msg: String, t: Throwable)
+    fun log(level: InternalLogLevel, msg: String?, t: Throwable?)
 
     /**
      * Log an exception (throwable) at the specified [level].
      *
      * @param t the exception (throwable) to log
      */
-    fun log(level: InternalLogLevel, t: Throwable)
+    fun log(level: InternalLogLevel, t: Throwable?)
 }

@@ -39,27 +39,27 @@ abstract class AbstractInternalLogger protected constructor(name: String) : Inte
         InternalLogLevel.ERROR -> isErrorEnabled()
     }
 
-    override fun trace(t: Throwable) {
+    override fun trace(t: Throwable?) {
         trace(EXCEPTION_MESSAGE, t)
     }
 
-    override fun debug(t: Throwable) {
+    override fun debug(t: Throwable?) {
         debug(EXCEPTION_MESSAGE, t)
     }
 
-    override fun info(t: Throwable) {
+    override fun info(t: Throwable?) {
         info(EXCEPTION_MESSAGE, t)
     }
 
-    override fun warn(t: Throwable) {
+    override fun warn(t: Throwable?) {
         warn(EXCEPTION_MESSAGE, t)
     }
 
-    override fun error(t: Throwable) {
+    override fun error(t: Throwable?) {
         error(EXCEPTION_MESSAGE, t)
     }
 
-    override fun log(level: InternalLogLevel, msg: String, cause: Throwable) {
+    override fun log(level: InternalLogLevel, msg: String?, cause: Throwable?) {
         when (level) {
             InternalLogLevel.TRACE -> trace(msg, cause)
             InternalLogLevel.DEBUG -> debug(msg, cause)
@@ -69,7 +69,7 @@ abstract class AbstractInternalLogger protected constructor(name: String) : Inte
         }
     }
 
-    override fun log(level: InternalLogLevel, cause: Throwable) {
+    override fun log(level: InternalLogLevel, cause: Throwable?) {
         when (level) {
             InternalLogLevel.TRACE -> trace(cause)
             InternalLogLevel.DEBUG -> debug(cause)
@@ -79,7 +79,7 @@ abstract class AbstractInternalLogger protected constructor(name: String) : Inte
         }
     }
 
-    override fun log(level: InternalLogLevel, msg: String) {
+    override fun log(level: InternalLogLevel, msg: String?) {
         when (level) {
             InternalLogLevel.TRACE -> trace(msg)
             InternalLogLevel.DEBUG -> debug(msg)
@@ -89,7 +89,7 @@ abstract class AbstractInternalLogger protected constructor(name: String) : Inte
         }
     }
 
-    override fun log(level: InternalLogLevel, format: String, arg: Any) {
+    override fun log(level: InternalLogLevel, format: String?, arg: Any?) {
         when (level) {
             InternalLogLevel.TRACE -> trace(format, arg)
             InternalLogLevel.DEBUG -> debug(format, arg)
@@ -99,7 +99,7 @@ abstract class AbstractInternalLogger protected constructor(name: String) : Inte
         }
     }
 
-    override fun log(level: InternalLogLevel, format: String, argA: Any, argB: Any) {
+    override fun log(level: InternalLogLevel, format: String?, argA: Any?, argB: Any?) {
         when (level) {
             InternalLogLevel.TRACE -> trace(format, argA, argB)
             InternalLogLevel.DEBUG -> debug(format, argA, argB)
@@ -109,7 +109,7 @@ abstract class AbstractInternalLogger protected constructor(name: String) : Inte
         }
     }
 
-    override fun log(level: InternalLogLevel, format: String, vararg arguments: Any) {
+    override fun log(level: InternalLogLevel, format: String?, vararg arguments: Any?) {
         when (level) {
             InternalLogLevel.TRACE -> trace(format, *arguments)
             InternalLogLevel.DEBUG -> debug(format, *arguments)

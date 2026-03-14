@@ -326,7 +326,7 @@ public final class OpenSslServerContext extends OpenSslContext {
                 toX509CertificatesInternal(keyCertChainFile), toPrivateKeyInternal(keyFile, keyPassword),
                 keyPassword, keyManagerFactory, ciphers, cipherFilter,
                 apn, sessionCacheSize, sessionTimeout, ClientAuth.NONE, null, false, false, KeyStore.getDefaultType(),
-                null, EMPTY_MAP_ENTRY, null);
+                null, (Map.Entry<SslContextOption<?>, Object>[]) EMPTY_MAP_ENTRY, null);
     }
 
     OpenSslServerContext(

@@ -34,7 +34,7 @@ import java.io.OutputStream
  *
  * @see ByteBufInputStream
  */
-class ByteBufOutputStream : OutputStream, DataOutput {
+open class ByteBufOutputStream : OutputStream, DataOutput {
 
     private val buffer: ByteBuf
     private val startIndex: Int

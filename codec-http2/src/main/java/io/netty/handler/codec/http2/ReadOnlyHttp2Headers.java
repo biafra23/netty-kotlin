@@ -28,7 +28,7 @@ import java.util.Map;
 import java.util.NoSuchElementException;
 import java.util.Set;
 
-import static io.netty.handler.codec.CharSequenceValueConverter.*;
+import static io.netty.handler.codec.CharSequenceValueConverter.INSTANCE;
 import static io.netty.handler.codec.http2.DefaultHttp2Headers.*;
 import static io.netty.util.AsciiString.*;
 import static io.netty.util.internal.EmptyArrays.*;

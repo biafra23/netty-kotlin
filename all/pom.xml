@@ -18,9 +18,9 @@
 
   <modelVersion>4.0.0</modelVersion>
   <parent>
-    <groupId>io.netty</groupId>
-    <artifactId>netty-parent</artifactId>
-    <version>4.2.11.Final-SNAPSHOT</version>
+    <groupId>com.jaeckel</groupId>
+    <artifactId>netty-kotlin</artifactId>
+    <version>1.0-SNAPSHOT</version>
   </parent>
 
   <artifactId>netty-all</artifactId>
@@ -37,7 +37,7 @@
   <dependencyManagement>
     <dependencies>
       <dependency>
-        <groupId>io.netty</groupId>
+        <groupId>com.jaeckel</groupId>
         <artifactId>netty-bom</artifactId>
         <version>${project.version}</version>
         <type>pom</type>
@@ -72,19 +72,19 @@
           <scope>runtime</scope>
         </dependency>
         <dependency>
-          <groupId>io.netty</groupId>
+          <groupId>com.jaeckel</groupId>
           <artifactId>netty-transport-native-io_uring</artifactId>
           <classifier>linux-x86_64</classifier>
           <scope>runtime</scope>
         </dependency>
         <dependency>
-          <groupId>io.netty</groupId>
+          <groupId>com.jaeckel</groupId>
           <artifactId>netty-transport-native-io_uring</artifactId>
           <classifier>linux-aarch_64</classifier>
           <scope>runtime</scope>
         </dependency>
         <dependency>
-          <groupId>io.netty</groupId>
+          <groupId>com.jaeckel</groupId>
           <artifactId>netty-transport-native-io_uring</artifactId>
           <classifier>linux-riscv64</classifier>
           <scope>runtime</scope>
@@ -114,31 +114,31 @@
           <scope>runtime</scope>
         </dependency>
         <dependency>
-          <groupId>io.netty</groupId>
+          <groupId>com.jaeckel</groupId>
           <artifactId>netty-codec-native-quic</artifactId>
           <classifier>linux-x86_64</classifier>
           <scope>runtime</scope>
         </dependency>
         <dependency>
-          <groupId>io.netty</groupId>
+          <groupId>com.jaeckel</groupId>
           <artifactId>netty-codec-native-quic</artifactId>
           <classifier>linux-aarch_64</classifier>
           <scope>runtime</scope>
         </dependency>
         <dependency>
-          <groupId>io.netty</groupId>
+          <groupId>com.jaeckel</groupId>
           <artifactId>netty-codec-native-quic</artifactId>
           <classifier>osx-x86_64</classifier>
           <scope>runtime</scope>
         </dependency>
         <dependency>
-          <groupId>io.netty</groupId>
+          <groupId>com.jaeckel</groupId>
           <artifactId>netty-codec-native-quic</artifactId>
           <classifier>osx-aarch_64</classifier>
           <scope>runtime</scope>
         </dependency>
         <dependency>
-          <groupId>io.netty</groupId>
+          <groupId>com.jaeckel</groupId>
           <artifactId>netty-codec-native-quic</artifactId>
           <classifier>windows-x86_64</classifier>
           <scope>runtime</scope>
@@ -170,31 +170,31 @@
           <scope>runtime</scope>
         </dependency>
         <dependency>
-          <groupId>io.netty</groupId>
+          <groupId>com.jaeckel</groupId>
           <artifactId>netty-transport-native-io_uring</artifactId>
           <classifier>linux-x86_64</classifier>
           <scope>runtime</scope>
         </dependency>
         <dependency>
-          <groupId>io.netty</groupId>
+          <groupId>com.jaeckel</groupId>
           <artifactId>netty-transport-native-io_uring</artifactId>
           <classifier>linux-aarch_64</classifier>
           <scope>runtime</scope>
         </dependency>
         <dependency>
-          <groupId>io.netty</groupId>
+          <groupId>com.jaeckel</groupId>
           <artifactId>netty-transport-native-io_uring</artifactId>
           <classifier>linux-riscv64</classifier>
           <scope>runtime</scope>
         </dependency>
         <dependency>
-          <groupId>io.netty</groupId>
+          <groupId>com.jaeckel</groupId>
           <artifactId>netty-codec-native-quic</artifactId>
           <classifier>linux-x86_64</classifier>
           <scope>runtime</scope>
         </dependency>
         <dependency>
-          <groupId>io.netty</groupId>
+          <groupId>com.jaeckel</groupId>
           <artifactId>netty-codec-native-quic</artifactId>
           <classifier>linux-aarch_64</classifier>
           <scope>runtime</scope>
@@ -214,13 +214,13 @@
           <scope>runtime</scope>
         </dependency>
         <dependency>
-          <groupId>io.netty</groupId>
+          <groupId>com.jaeckel</groupId>
           <artifactId>netty-transport-native-io_uring</artifactId>
           <classifier>${jni.classifier}</classifier>
           <scope>runtime</scope>
         </dependency>
         <dependency>
-          <groupId>io.netty</groupId>
+          <groupId>com.jaeckel</groupId>
           <artifactId>netty-codec-native-quic</artifactId>
           <classifier>${jni.classifier}</classifier>
           <scope>runtime</scope>
@@ -246,7 +246,7 @@
           <scope>runtime</scope>
         </dependency>
         <dependency>
-          <groupId>io.netty</groupId>
+          <groupId>com.jaeckel</groupId>
           <artifactId>netty-codec-native-quic</artifactId>
           <classifier>${jni.classifier}</classifier>
           <scope>runtime</scope>
@@ -446,7 +446,7 @@
       <scope>compile</scope>
     </dependency>
     <dependency>
-      <groupId>io.netty</groupId>
+      <groupId>com.jaeckel</groupId>
       <artifactId>netty-handler-ssl-ocsp</artifactId>
       <scope>compile</scope>
     </dependency>
@@ -511,12 +511,12 @@
       <scope>compile</scope>
     </dependency>
     <dependency>
-      <groupId>io.netty</groupId>
+      <groupId>com.jaeckel</groupId>
       <artifactId>netty-transport-classes-io_uring</artifactId>
       <scope>compile</scope>
     </dependency>
     <dependency>
-      <groupId>io.netty</groupId>
+      <groupId>com.jaeckel</groupId>
       <artifactId>netty-codec-classes-quic</artifactId>
       <scope>compile</scope>
     </dependency>

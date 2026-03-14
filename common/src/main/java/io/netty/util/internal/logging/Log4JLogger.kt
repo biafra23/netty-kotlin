@@ -87,7 +87,7 @@ internal class Log4JLogger(
      *
      * @param msg - the message object to be logged
      */
-    override fun trace(msg: String) {
+    override fun trace(msg: String?) {
         logger.log(FQCN, if (traceCapable) Level.TRACE else Level.DEBUG, msg, null)
     }
 
@@ -101,7 +101,7 @@ internal class Log4JLogger(
      * @param format the format string
      * @param arg the argument
      */
-    override fun trace(format: String, arg: Any) {
+    override fun trace(format: String?, arg: Any?) {
         if (isTraceEnabled()) {
             val ft = MessageFormatter.format(format, arg)
             logger.log(FQCN, if (traceCapable) Level.TRACE else Level.DEBUG,
@@ -120,7 +120,7 @@ internal class Log4JLogger(
      * @param argA the first argument
      * @param argB the second argument
      */
-    override fun trace(format: String, argA: Any, argB: Any) {
+    override fun trace(format: String?, argA: Any?, argB: Any?) {
         if (isTraceEnabled()) {
             val ft = MessageFormatter.format(format, argA, argB)
             logger.log(FQCN, if (traceCapable) Level.TRACE else Level.DEBUG,
@@ -138,7 +138,7 @@ internal class Log4JLogger(
      * @param format the format string
      * @param arguments an array of arguments
      */
-    override fun trace(format: String, vararg arguments: Any) {
+    override fun trace(format: String?, vararg arguments: Any?) {
         if (isTraceEnabled()) {
             val ft = MessageFormatter.arrayFormat(format, arguments)
             logger.log(FQCN, if (traceCapable) Level.TRACE else Level.DEBUG,
@@ -152,7 +152,7 @@ internal class Log4JLogger(
      * @param msg the message accompanying the exception
      * @param t the exception (throwable) to log
      */
-    override fun trace(msg: String, t: Throwable) {
+    override fun trace(msg: String?, t: Throwable?) {
         logger.log(FQCN, if (traceCapable) Level.TRACE else Level.DEBUG, msg, t)
     }
 
@@ -168,7 +168,7 @@ internal class Log4JLogger(
      *
      * @param msg - the message object to be logged
      */
-    override fun debug(msg: String) {
+    override fun debug(msg: String?) {
         logger.log(FQCN, Level.DEBUG, msg, null)
     }
 
@@ -182,7 +182,7 @@ internal class Log4JLogger(
      * @param format the format string
      * @param arg the argument
      */
-    override fun debug(format: String, arg: Any) {
+    override fun debug(format: String?, arg: Any?) {
         if (logger.isDebugEnabled) {
             val ft = MessageFormatter.format(format, arg)
             logger.log(FQCN, Level.DEBUG, ft.message, ft.throwable)
@@ -200,7 +200,7 @@ internal class Log4JLogger(
      * @param argA the first argument
      * @param argB the second argument
      */
-    override fun debug(format: String, argA: Any, argB: Any) {
+    override fun debug(format: String?, argA: Any?, argB: Any?) {
         if (logger.isDebugEnabled) {
             val ft = MessageFormatter.format(format, argA, argB)
             logger.log(FQCN, Level.DEBUG, ft.message, ft.throwable)
@@ -217,7 +217,7 @@ internal class Log4JLogger(
      * @param format the format string
      * @param arguments an array of arguments
      */
-    override fun debug(format: String, vararg arguments: Any) {
+    override fun debug(format: String?, vararg arguments: Any?) {
         if (logger.isDebugEnabled) {
             val ft = MessageFormatter.arrayFormat(format, arguments)
             logger.log(FQCN, Level.DEBUG, ft.message, ft.throwable)
@@ -230,7 +230,7 @@ internal class Log4JLogger(
      * @param msg the message accompanying the exception
      * @param t the exception (throwable) to log
      */
-    override fun debug(msg: String, t: Throwable) {
+    override fun debug(msg: String?, t: Throwable?) {
         logger.log(FQCN, Level.DEBUG, msg, t)
     }
 
@@ -246,7 +246,7 @@ internal class Log4JLogger(
      *
      * @param msg - the message object to be logged
      */
-    override fun info(msg: String) {
+    override fun info(msg: String?) {
         logger.log(FQCN, Level.INFO, msg, null)
     }
 
@@ -259,7 +259,7 @@ internal class Log4JLogger(
      * @param format the format string
      * @param arg the argument
      */
-    override fun info(format: String, arg: Any) {
+    override fun info(format: String?, arg: Any?) {
         if (logger.isInfoEnabled) {
             val ft = MessageFormatter.format(format, arg)
             logger.log(FQCN, Level.INFO, ft.message, ft.throwable)
@@ -277,7 +277,7 @@ internal class Log4JLogger(
      * @param argA the first argument
      * @param argB the second argument
      */
-    override fun info(format: String, argA: Any, argB: Any) {
+    override fun info(format: String?, argA: Any?, argB: Any?) {
         if (logger.isInfoEnabled) {
             val ft = MessageFormatter.format(format, argA, argB)
             logger.log(FQCN, Level.INFO, ft.message, ft.throwable)
@@ -294,7 +294,7 @@ internal class Log4JLogger(
      * @param format the format string
      * @param argArray an array of arguments
      */
-    override fun info(format: String, vararg argArray: Any) {
+    override fun info(format: String?, vararg argArray: Any?) {
         if (logger.isInfoEnabled) {
             val ft = MessageFormatter.arrayFormat(format, argArray)
             logger.log(FQCN, Level.INFO, ft.message, ft.throwable)
@@ -308,7 +308,7 @@ internal class Log4JLogger(
      * @param msg the message accompanying the exception
      * @param t the exception (throwable) to log
      */
-    override fun info(msg: String, t: Throwable) {
+    override fun info(msg: String?, t: Throwable?) {
         logger.log(FQCN, Level.INFO, msg, t)
     }
 
@@ -324,7 +324,7 @@ internal class Log4JLogger(
      *
      * @param msg - the message object to be logged
      */
-    override fun warn(msg: String) {
+    override fun warn(msg: String?) {
         logger.log(FQCN, Level.WARN, msg, null)
     }
 
@@ -338,7 +338,7 @@ internal class Log4JLogger(
      * @param format the format string
      * @param arg the argument
      */
-    override fun warn(format: String, arg: Any) {
+    override fun warn(format: String?, arg: Any?) {
         if (logger.isEnabledFor(Level.WARN)) {
             val ft = MessageFormatter.format(format, arg)
             logger.log(FQCN, Level.WARN, ft.message, ft.throwable)
@@ -356,7 +356,7 @@ internal class Log4JLogger(
      * @param argA the first argument
      * @param argB the second argument
      */
-    override fun warn(format: String, argA: Any, argB: Any) {
+    override fun warn(format: String?, argA: Any?, argB: Any?) {
         if (logger.isEnabledFor(Level.WARN)) {
             val ft = MessageFormatter.format(format, argA, argB)
             logger.log(FQCN, Level.WARN, ft.message, ft.throwable)
@@ -373,7 +373,7 @@ internal class Log4JLogger(
      * @param format the format string
      * @param argArray an array of arguments
      */
-    override fun warn(format: String, vararg argArray: Any) {
+    override fun warn(format: String?, vararg argArray: Any?) {
         if (logger.isEnabledFor(Level.WARN)) {
             val ft = MessageFormatter.arrayFormat(format, argArray)
             logger.log(FQCN, Level.WARN, ft.message, ft.throwable)
@@ -387,7 +387,7 @@ internal class Log4JLogger(
      * @param msg the message accompanying the exception
      * @param t the exception (throwable) to log
      */
-    override fun warn(msg: String, t: Throwable) {
+    override fun warn(msg: String?, t: Throwable?) {
         logger.log(FQCN, Level.WARN, msg, t)
     }
 
@@ -403,7 +403,7 @@ internal class Log4JLogger(
      *
      * @param msg - the message object to be logged
      */
-    override fun error(msg: String) {
+    override fun error(msg: String?) {
         logger.log(FQCN, Level.ERROR, msg, null)
     }
 
@@ -417,7 +417,7 @@ internal class Log4JLogger(
      * @param format the format string
      * @param arg the argument
      */
-    override fun error(format: String, arg: Any) {
+    override fun error(format: String?, arg: Any?) {
         if (logger.isEnabledFor(Level.ERROR)) {
             val ft = MessageFormatter.format(format, arg)
             logger.log(FQCN, Level.ERROR, ft.message, ft.throwable)
@@ -435,7 +435,7 @@ internal class Log4JLogger(
      * @param argA the first argument
      * @param argB the second argument
      */
-    override fun error(format: String, argA: Any, argB: Any) {
+    override fun error(format: String?, argA: Any?, argB: Any?) {
         if (logger.isEnabledFor(Level.ERROR)) {
             val ft = MessageFormatter.format(format, argA, argB)
             logger.log(FQCN, Level.ERROR, ft.message, ft.throwable)
@@ -452,7 +452,7 @@ internal class Log4JLogger(
      * @param format the format string
      * @param argArray an array of arguments
      */
-    override fun error(format: String, vararg argArray: Any) {
+    override fun error(format: String?, vararg argArray: Any?) {
         if (logger.isEnabledFor(Level.ERROR)) {
             val ft = MessageFormatter.arrayFormat(format, argArray)
             logger.log(FQCN, Level.ERROR, ft.message, ft.throwable)
@@ -466,7 +466,7 @@ internal class Log4JLogger(
      * @param msg the message accompanying the exception
      * @param t the exception (throwable) to log
      */
-    override fun error(msg: String, t: Throwable) {
+    override fun error(msg: String?, t: Throwable?) {
         logger.log(FQCN, Level.ERROR, msg, t)
     }
 }

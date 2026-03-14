@@ -28,15 +28,15 @@ abstract class CompleteFuture<V>
  *
  * @param executor the [EventExecutor] associated with this future
  */
-protected constructor(private val executor: EventExecutor) : AbstractFuture<V>() {
+protected constructor(private val executor: EventExecutor?) : AbstractFuture<V>() {
 
     /**
      * Return the [EventExecutor] which is used by this [CompleteFuture].
      */
-    protected open fun executor(): EventExecutor = executor
+    protected open fun executor(): EventExecutor? = executor
 
     override fun addListener(listener: GenericFutureListener<out Future<in V>>): Future<V> {
-        DefaultPromise.notifyListener(executor(), this, ObjectUtil.checkNotNull(listener, "listener"))
+        DefaultPromise.notifyListener(executor()!!, this, ObjectUtil.checkNotNull(listener, "listener"))
         return this
     }
 
@@ -46,7 +46,7 @@ protected constructor(private val executor: EventExecutor) : AbstractFuture<V>()
             if (l == null) {
                 break
             }
-            DefaultPromise.notifyListener(executor(), this, l)
+            DefaultPromise.notifyListener(executor()!!, this, l)
         }
         return this
     }

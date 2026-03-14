@@ -23,10 +23,10 @@
     <version>9</version>
   </parent>
 
-  <groupId>io.netty</groupId>
-  <artifactId>netty-parent</artifactId>
+  <groupId>com.jaeckel</groupId>
+  <artifactId>netty-kotlin</artifactId>
   <packaging>pom</packaging>
-  <version>4.2.11.Final-SNAPSHOT</version>
+  <version>1.0-SNAPSHOT</version>
 
   <name>Netty</name>
   <url>https://netty.io/</url>
@@ -886,14 +886,14 @@
 
       <!-- Our own Tomcat Native fork - completely optional for the native lib, used for accelerating SSL with OpenSSL. -->
       <dependency>
-        <groupId>${project.groupId}</groupId>
+        <groupId>io.netty</groupId>
         <artifactId>netty-tcnative-classes</artifactId>
         <version>${tcnative.version}</version>
         <scope>compile</scope>
         <optional>true</optional>
       </dependency>
       <dependency>
-        <groupId>${project.groupId}</groupId>
+        <groupId>io.netty</groupId>
         <artifactId>${tcnative.artifactId}</artifactId>
         <version>${tcnative.version}</version>
         <classifier>${tcnative.classifier}</classifier>
@@ -1113,7 +1113,7 @@
         <scope>test</scope>
       </dependency>
       <dependency>
-        <groupId>${project.groupId}</groupId>
+        <groupId>io.netty</groupId>
         <artifactId>netty-build-common</artifactId>
         <version>${netty.build.version}</version>
         <scope>test</scope>
@@ -1512,7 +1512,7 @@
             <version>8.29</version>
           </dependency>
           <dependency>
-            <groupId>${project.groupId}</groupId>
+            <groupId>io.netty</groupId>
             <artifactId>netty-build-common</artifactId>
             <version>${netty.build.version}</version>
           </dependency>

@@ -71,7 +71,7 @@ internal class CommonsLogger(
      *
      * @param msg - the message object to be logged
      */
-    override fun trace(msg: String) {
+    override fun trace(msg: String?) {
         logger.trace(msg)
     }
 
@@ -85,7 +85,7 @@ internal class CommonsLogger(
      * @param format the format string
      * @param arg the argument
      */
-    override fun trace(format: String, arg: Any) {
+    override fun trace(format: String?, arg: Any?) {
         if (logger.isTraceEnabled) {
             val ft = MessageFormatter.format(format, arg)
             logger.trace(ft.message, ft.throwable)
@@ -103,7 +103,7 @@ internal class CommonsLogger(
      * @param argA the first argument
      * @param argB the second argument
      */
-    override fun trace(format: String, argA: Any, argB: Any) {
+    override fun trace(format: String?, argA: Any?, argB: Any?) {
         if (logger.isTraceEnabled) {
             val ft = MessageFormatter.format(format, argA, argB)
             logger.trace(ft.message, ft.throwable)
@@ -120,7 +120,7 @@ internal class CommonsLogger(
      * @param format the format string
      * @param arguments a list of 3 or more arguments
      */
-    override fun trace(format: String, vararg arguments: Any) {
+    override fun trace(format: String?, vararg arguments: Any?) {
         if (logger.isTraceEnabled) {
             val ft = MessageFormatter.arrayFormat(format, arguments)
             logger.trace(ft.message, ft.throwable)
@@ -134,7 +134,7 @@ internal class CommonsLogger(
      * @param msg the message accompanying the exception
      * @param t the exception (throwable) to log
      */
-    override fun trace(msg: String, t: Throwable) {
+    override fun trace(msg: String?, t: Throwable?) {
         logger.trace(msg, t)
     }
 
@@ -150,7 +150,7 @@ internal class CommonsLogger(
      *
      * @param msg - the message object to be logged
      */
-    override fun debug(msg: String) {
+    override fun debug(msg: String?) {
         logger.debug(msg)
     }
 
@@ -164,7 +164,7 @@ internal class CommonsLogger(
      * @param format the format string
      * @param arg the argument
      */
-    override fun debug(format: String, arg: Any) {
+    override fun debug(format: String?, arg: Any?) {
         if (logger.isDebugEnabled) {
             val ft = MessageFormatter.format(format, arg)
             logger.debug(ft.message, ft.throwable)
@@ -182,7 +182,7 @@ internal class CommonsLogger(
      * @param argA the first argument
      * @param argB the second argument
      */
-    override fun debug(format: String, argA: Any, argB: Any) {
+    override fun debug(format: String?, argA: Any?, argB: Any?) {
         if (logger.isDebugEnabled) {
             val ft = MessageFormatter.format(format, argA, argB)
             logger.debug(ft.message, ft.throwable)
@@ -199,7 +199,7 @@ internal class CommonsLogger(
      * @param format the format string
      * @param arguments a list of 3 or more arguments
      */
-    override fun debug(format: String, vararg arguments: Any) {
+    override fun debug(format: String?, vararg arguments: Any?) {
         if (logger.isDebugEnabled) {
             val ft = MessageFormatter.arrayFormat(format, arguments)
             logger.debug(ft.message, ft.throwable)
@@ -213,7 +213,7 @@ internal class CommonsLogger(
      * @param msg the message accompanying the exception
      * @param t the exception (throwable) to log
      */
-    override fun debug(msg: String, t: Throwable) {
+    override fun debug(msg: String?, t: Throwable?) {
         logger.debug(msg, t)
     }
 
@@ -229,7 +229,7 @@ internal class CommonsLogger(
      *
      * @param msg - the message object to be logged
      */
-    override fun info(msg: String) {
+    override fun info(msg: String?) {
         logger.info(msg)
     }
 
@@ -243,7 +243,7 @@ internal class CommonsLogger(
      * @param format the format string
      * @param arg the argument
      */
-    override fun info(format: String, arg: Any) {
+    override fun info(format: String?, arg: Any?) {
         if (logger.isInfoEnabled) {
             val ft = MessageFormatter.format(format, arg)
             logger.info(ft.message, ft.throwable)
@@ -261,7 +261,7 @@ internal class CommonsLogger(
      * @param argA the first argument
      * @param argB the second argument
      */
-    override fun info(format: String, argA: Any, argB: Any) {
+    override fun info(format: String?, argA: Any?, argB: Any?) {
         if (logger.isInfoEnabled) {
             val ft = MessageFormatter.format(format, argA, argB)
             logger.info(ft.message, ft.throwable)
@@ -278,7 +278,7 @@ internal class CommonsLogger(
      * @param format the format string
      * @param arguments a list of 3 or more arguments
      */
-    override fun info(format: String, vararg arguments: Any) {
+    override fun info(format: String?, vararg arguments: Any?) {
         if (logger.isInfoEnabled) {
             val ft = MessageFormatter.arrayFormat(format, arguments)
             logger.info(ft.message, ft.throwable)
@@ -292,7 +292,7 @@ internal class CommonsLogger(
      * @param msg the message accompanying the exception
      * @param t the exception (throwable) to log
      */
-    override fun info(msg: String, t: Throwable) {
+    override fun info(msg: String?, t: Throwable?) {
         logger.info(msg, t)
     }
 
@@ -308,7 +308,7 @@ internal class CommonsLogger(
      *
      * @param msg - the message object to be logged
      */
-    override fun warn(msg: String) {
+    override fun warn(msg: String?) {
         logger.warn(msg)
     }
 
@@ -322,7 +322,7 @@ internal class CommonsLogger(
      * @param format the format string
      * @param arg the argument
      */
-    override fun warn(format: String, arg: Any) {
+    override fun warn(format: String?, arg: Any?) {
         if (logger.isWarnEnabled) {
             val ft = MessageFormatter.format(format, arg)
             logger.warn(ft.message, ft.throwable)
@@ -340,7 +340,7 @@ internal class CommonsLogger(
      * @param argA the first argument
      * @param argB the second argument
      */
-    override fun warn(format: String, argA: Any, argB: Any) {
+    override fun warn(format: String?, argA: Any?, argB: Any?) {
         if (logger.isWarnEnabled) {
             val ft = MessageFormatter.format(format, argA, argB)
             logger.warn(ft.message, ft.throwable)
@@ -357,7 +357,7 @@ internal class CommonsLogger(
      * @param format the format string
      * @param arguments a list of 3 or more arguments
      */
-    override fun warn(format: String, vararg arguments: Any) {
+    override fun warn(format: String?, vararg arguments: Any?) {
         if (logger.isWarnEnabled) {
             val ft = MessageFormatter.arrayFormat(format, arguments)
             logger.warn(ft.message, ft.throwable)
@@ -371,7 +371,7 @@ internal class CommonsLogger(
      * @param msg the message accompanying the exception
      * @param t the exception (throwable) to log
      */
-    override fun warn(msg: String, t: Throwable) {
+    override fun warn(msg: String?, t: Throwable?) {
         logger.warn(msg, t)
     }
 
@@ -387,7 +387,7 @@ internal class CommonsLogger(
      *
      * @param msg - the message object to be logged
      */
-    override fun error(msg: String) {
+    override fun error(msg: String?) {
         logger.error(msg)
     }
 
@@ -401,7 +401,7 @@ internal class CommonsLogger(
      * @param format the format string
      * @param arg the argument
      */
-    override fun error(format: String, arg: Any) {
+    override fun error(format: String?, arg: Any?) {
         if (logger.isErrorEnabled) {
             val ft = MessageFormatter.format(format, arg)
             logger.error(ft.message, ft.throwable)
@@ -419,7 +419,7 @@ internal class CommonsLogger(
      * @param argA the first argument
      * @param argB the second argument
      */
-    override fun error(format: String, argA: Any, argB: Any) {
+    override fun error(format: String?, argA: Any?, argB: Any?) {
         if (logger.isErrorEnabled) {
             val ft = MessageFormatter.format(format, argA, argB)
             logger.error(ft.message, ft.throwable)
@@ -436,7 +436,7 @@ internal class CommonsLogger(
      * @param format the format string
      * @param arguments a list of 3 or more arguments
      */
-    override fun error(format: String, vararg arguments: Any) {
+    override fun error(format: String?, vararg arguments: Any?) {
         if (logger.isErrorEnabled) {
             val ft = MessageFormatter.arrayFormat(format, arguments)
             logger.error(ft.message, ft.throwable)
@@ -450,7 +450,7 @@ internal class CommonsLogger(
      * @param msg the message accompanying the exception
      * @param t the exception (throwable) to log
      */
-    override fun error(msg: String, t: Throwable) {
+    override fun error(msg: String?, t: Throwable?) {
         logger.error(msg, t)
     }
 }

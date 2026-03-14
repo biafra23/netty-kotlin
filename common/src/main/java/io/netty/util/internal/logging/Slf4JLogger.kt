@@ -30,111 +30,111 @@ internal class Slf4JLogger(
 
     override fun isTraceEnabled(): Boolean = logger.isTraceEnabled
 
-    override fun trace(msg: String) {
+    override fun trace(msg: String?) {
         logger.trace(msg)
     }
 
-    override fun trace(format: String, arg: Any) {
+    override fun trace(format: String?, arg: Any?) {
         logger.trace(format, arg)
     }
 
-    override fun trace(format: String, argA: Any, argB: Any) {
+    override fun trace(format: String?, argA: Any?, argB: Any?) {
         logger.trace(format, argA, argB)
     }
 
-    override fun trace(format: String, vararg argArray: Any) {
+    override fun trace(format: String?, vararg argArray: Any?) {
         logger.trace(format, *argArray)
     }
 
-    override fun trace(msg: String, t: Throwable) {
+    override fun trace(msg: String?, t: Throwable?) {
         logger.trace(msg, t)
     }
 
     override fun isDebugEnabled(): Boolean = logger.isDebugEnabled
 
-    override fun debug(msg: String) {
+    override fun debug(msg: String?) {
         logger.debug(msg)
     }
 
-    override fun debug(format: String, arg: Any) {
+    override fun debug(format: String?, arg: Any?) {
         logger.debug(format, arg)
     }
 
-    override fun debug(format: String, argA: Any, argB: Any) {
+    override fun debug(format: String?, argA: Any?, argB: Any?) {
         logger.debug(format, argA, argB)
     }
 
-    override fun debug(format: String, vararg argArray: Any) {
+    override fun debug(format: String?, vararg argArray: Any?) {
         logger.debug(format, *argArray)
     }
 
-    override fun debug(msg: String, t: Throwable) {
+    override fun debug(msg: String?, t: Throwable?) {
         logger.debug(msg, t)
     }
 
     override fun isInfoEnabled(): Boolean = logger.isInfoEnabled
 
-    override fun info(msg: String) {
+    override fun info(msg: String?) {
         logger.info(msg)
     }
 
-    override fun info(format: String, arg: Any) {
+    override fun info(format: String?, arg: Any?) {
         logger.info(format, arg)
     }
 
-    override fun info(format: String, argA: Any, argB: Any) {
+    override fun info(format: String?, argA: Any?, argB: Any?) {
         logger.info(format, argA, argB)
     }
 
-    override fun info(format: String, vararg argArray: Any) {
+    override fun info(format: String?, vararg argArray: Any?) {
         logger.info(format, *argArray)
     }
 
-    override fun info(msg: String, t: Throwable) {
+    override fun info(msg: String?, t: Throwable?) {
         logger.info(msg, t)
     }
 
     override fun isWarnEnabled(): Boolean = logger.isWarnEnabled
 
-    override fun warn(msg: String) {
+    override fun warn(msg: String?) {
         logger.warn(msg)
     }
 
-    override fun warn(format: String, arg: Any) {
+    override fun warn(format: String?, arg: Any?) {
         logger.warn(format, arg)
     }
 
-    override fun warn(format: String, vararg argArray: Any) {
+    override fun warn(format: String?, vararg argArray: Any?) {
         logger.warn(format, *argArray)
     }
 
-    override fun warn(format: String, argA: Any, argB: Any) {
+    override fun warn(format: String?, argA: Any?, argB: Any?) {
         logger.warn(format, argA, argB)
     }
 
-    override fun warn(msg: String, t: Throwable) {
+    override fun warn(msg: String?, t: Throwable?) {
         logger.warn(msg, t)
     }
 
     override fun isErrorEnabled(): Boolean = logger.isErrorEnabled
 
-    override fun error(msg: String) {
+    override fun error(msg: String?) {
         logger.error(msg)
     }
 
-    override fun error(format: String, arg: Any) {
+    override fun error(format: String?, arg: Any?) {
         logger.error(format, arg)
     }
 
-    override fun error(format: String, argA: Any, argB: Any) {
+    override fun error(format: String?, argA: Any?, argB: Any?) {
         logger.error(format, argA, argB)
     }
 
-    override fun error(format: String, vararg argArray: Any) {
+    override fun error(format: String?, vararg argArray: Any?) {
         logger.error(format, *argArray)
     }
 
-    override fun error(msg: String, t: Throwable) {
+    override fun error(msg: String?, t: Throwable?) {
         logger.error(msg, t)
     }
 }

@@ -54,34 +54,34 @@ internal class JdkLogger(
 
     override fun isTraceEnabled(): Boolean = logger.isLoggable(Level.FINEST)
 
-    override fun trace(msg: String) {
+    override fun trace(msg: String?) {
         if (logger.isLoggable(Level.FINEST)) {
             log(SELF, Level.FINEST, msg, null)
         }
     }
 
-    override fun trace(format: String, arg: Any) {
+    override fun trace(format: String?, arg: Any?) {
         if (logger.isLoggable(Level.FINEST)) {
             val ft = MessageFormatter.format(format, arg)
             log(SELF, Level.FINEST, ft.message, ft.throwable)
         }
     }
 
-    override fun trace(format: String, argA: Any, argB: Any) {
+    override fun trace(format: String?, argA: Any?, argB: Any?) {
         if (logger.isLoggable(Level.FINEST)) {
             val ft = MessageFormatter.format(format, argA, argB)
             log(SELF, Level.FINEST, ft.message, ft.throwable)
         }
     }
 
-    override fun trace(format: String, vararg argArray: Any) {
+    override fun trace(format: String?, vararg argArray: Any?) {
         if (logger.isLoggable(Level.FINEST)) {
             val ft = MessageFormatter.arrayFormat(format, argArray)
             log(SELF, Level.FINEST, ft.message, ft.throwable)
         }
     }
 
-    override fun trace(msg: String, t: Throwable) {
+    override fun trace(msg: String?, t: Throwable?) {
         if (logger.isLoggable(Level.FINEST)) {
             log(SELF, Level.FINEST, msg, t)
         }
@@ -89,34 +89,34 @@ internal class JdkLogger(
 
     override fun isDebugEnabled(): Boolean = logger.isLoggable(Level.FINE)
 
-    override fun debug(msg: String) {
+    override fun debug(msg: String?) {
         if (logger.isLoggable(Level.FINE)) {
             log(SELF, Level.FINE, msg, null)
         }
     }
 
-    override fun debug(format: String, arg: Any) {
+    override fun debug(format: String?, arg: Any?) {
         if (logger.isLoggable(Level.FINE)) {
             val ft = MessageFormatter.format(format, arg)
             log(SELF, Level.FINE, ft.message, ft.throwable)
         }
     }
 
-    override fun debug(format: String, argA: Any, argB: Any) {
+    override fun debug(format: String?, argA: Any?, argB: Any?) {
         if (logger.isLoggable(Level.FINE)) {
             val ft = MessageFormatter.format(format, argA, argB)
             log(SELF, Level.FINE, ft.message, ft.throwable)
         }
     }
 
-    override fun debug(format: String, vararg argArray: Any) {
+    override fun debug(format: String?, vararg argArray: Any?) {
         if (logger.isLoggable(Level.FINE)) {
             val ft = MessageFormatter.arrayFormat(format, argArray)
             log(SELF, Level.FINE, ft.message, ft.throwable)
         }
     }
 
-    override fun debug(msg: String, t: Throwable) {
+    override fun debug(msg: String?, t: Throwable?) {
         if (logger.isLoggable(Level.FINE)) {
             log(SELF, Level.FINE, msg, t)
         }
@@ -124,34 +124,34 @@ internal class JdkLogger(
 
     override fun isInfoEnabled(): Boolean = logger.isLoggable(Level.INFO)
 
-    override fun info(msg: String) {
+    override fun info(msg: String?) {
         if (logger.isLoggable(Level.INFO)) {
             log(SELF, Level.INFO, msg, null)
         }
     }
 
-    override fun info(format: String, arg: Any) {
+    override fun info(format: String?, arg: Any?) {
         if (logger.isLoggable(Level.INFO)) {
             val ft = MessageFormatter.format(format, arg)
             log(SELF, Level.INFO, ft.message, ft.throwable)
         }
     }
 
-    override fun info(format: String, argA: Any, argB: Any) {
+    override fun info(format: String?, argA: Any?, argB: Any?) {
         if (logger.isLoggable(Level.INFO)) {
             val ft = MessageFormatter.format(format, argA, argB)
             log(SELF, Level.INFO, ft.message, ft.throwable)
         }
     }
 
-    override fun info(format: String, vararg argArray: Any) {
+    override fun info(format: String?, vararg argArray: Any?) {
         if (logger.isLoggable(Level.INFO)) {
             val ft = MessageFormatter.arrayFormat(format, argArray)
             log(SELF, Level.INFO, ft.message, ft.throwable)
         }
     }
 
-    override fun info(msg: String, t: Throwable) {
+    override fun info(msg: String?, t: Throwable?) {
         if (logger.isLoggable(Level.INFO)) {
             log(SELF, Level.INFO, msg, t)
         }
@@ -159,34 +159,34 @@ internal class JdkLogger(
 
     override fun isWarnEnabled(): Boolean = logger.isLoggable(Level.WARNING)
 
-    override fun warn(msg: String) {
+    override fun warn(msg: String?) {
         if (logger.isLoggable(Level.WARNING)) {
             log(SELF, Level.WARNING, msg, null)
         }
     }
 
-    override fun warn(format: String, arg: Any) {
+    override fun warn(format: String?, arg: Any?) {
         if (logger.isLoggable(Level.WARNING)) {
             val ft = MessageFormatter.format(format, arg)
             log(SELF, Level.WARNING, ft.message, ft.throwable)
         }
     }
 
-    override fun warn(format: String, argA: Any, argB: Any) {
+    override fun warn(format: String?, argA: Any?, argB: Any?) {
         if (logger.isLoggable(Level.WARNING)) {
             val ft = MessageFormatter.format(format, argA, argB)
             log(SELF, Level.WARNING, ft.message, ft.throwable)
         }
     }
 
-    override fun warn(format: String, vararg argArray: Any) {
+    override fun warn(format: String?, vararg argArray: Any?) {
         if (logger.isLoggable(Level.WARNING)) {
             val ft = MessageFormatter.arrayFormat(format, argArray)
             log(SELF, Level.WARNING, ft.message, ft.throwable)
         }
     }
 
-    override fun warn(msg: String, t: Throwable) {
+    override fun warn(msg: String?, t: Throwable?) {
         if (logger.isLoggable(Level.WARNING)) {
             log(SELF, Level.WARNING, msg, t)
         }
@@ -194,34 +194,34 @@ internal class JdkLogger(
 
     override fun isErrorEnabled(): Boolean = logger.isLoggable(Level.SEVERE)
 
-    override fun error(msg: String) {
+    override fun error(msg: String?) {
         if (logger.isLoggable(Level.SEVERE)) {
             log(SELF, Level.SEVERE, msg, null)
         }
     }
 
-    override fun error(format: String, arg: Any) {
+    override fun error(format: String?, arg: Any?) {
         if (logger.isLoggable(Level.SEVERE)) {
             val ft = MessageFormatter.format(format, arg)
             log(SELF, Level.SEVERE, ft.message, ft.throwable)
         }
     }
 
-    override fun error(format: String, argA: Any, argB: Any) {
+    override fun error(format: String?, argA: Any?, argB: Any?) {
         if (logger.isLoggable(Level.SEVERE)) {
             val ft = MessageFormatter.format(format, argA, argB)
             log(SELF, Level.SEVERE, ft.message, ft.throwable)
         }
     }
 
-    override fun error(format: String, vararg arguments: Any) {
+    override fun error(format: String?, vararg arguments: Any?) {
         if (logger.isLoggable(Level.SEVERE)) {
             val ft = MessageFormatter.arrayFormat(format, arguments)
             log(SELF, Level.SEVERE, ft.message, ft.throwable)
         }
     }
 
-    override fun error(msg: String, t: Throwable) {
+    override fun error(msg: String?, t: Throwable?) {
         if (logger.isLoggable(Level.SEVERE)) {
             log(SELF, Level.SEVERE, msg, t)
         }

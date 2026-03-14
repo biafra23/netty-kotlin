@@ -19,9 +19,9 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>io.netty</groupId>
-    <artifactId>netty-parent</artifactId>
-    <version>4.2.11.Final-SNAPSHOT</version>
+    <groupId>com.jaeckel</groupId>
+    <artifactId>netty-kotlin</artifactId>
+    <version>1.0-SNAPSHOT</version>
   </parent>
 
   <artifactId>netty-common</artifactId>
@@ -104,13 +104,13 @@
       <artifactId>mockito-core</artifactId>
     </dependency>
     <dependency>
-      <groupId>io.netty</groupId>
+      <groupId>com.jaeckel</groupId>
       <artifactId>netty-jfr-stub</artifactId>
       <version>${project.version}</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
-      <groupId>io.netty</groupId>
+      <groupId>com.jaeckel</groupId>
       <artifactId>netty-varhandle-stub</artifactId>
       <version>${project.version}</version>
       <scope>provided</scope>
@@ -118,7 +118,7 @@
     <!-- Add dependency on dev-tools as otherwise the build will fail if not installed first manually -->
     <!-- See https://github.com/netty/netty/issues/7842 -->
     <dependency>
-      <groupId>io.netty</groupId>
+      <groupId>com.jaeckel</groupId>
       <artifactId>netty-dev-tools</artifactId>
       <scope>test</scope>
       <optional>true</optional>

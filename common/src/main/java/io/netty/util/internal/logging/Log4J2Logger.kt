@@ -60,50 +60,50 @@ internal open class Log4J2Logger(
 
     override fun name(): String = getName()
 
-    override fun trace(t: Throwable) {
+    override fun trace(t: Throwable?) {
         log(Level.TRACE, AbstractInternalLogger.EXCEPTION_MESSAGE, t)
     }
 
-    override fun debug(t: Throwable) {
+    override fun debug(t: Throwable?) {
         log(Level.DEBUG, AbstractInternalLogger.EXCEPTION_MESSAGE, t)
     }
 
-    override fun info(t: Throwable) {
+    override fun info(t: Throwable?) {
         log(Level.INFO, AbstractInternalLogger.EXCEPTION_MESSAGE, t)
     }
 
-    override fun warn(t: Throwable) {
+    override fun warn(t: Throwable?) {
         log(Level.WARN, AbstractInternalLogger.EXCEPTION_MESSAGE, t)
     }
 
-    override fun error(t: Throwable) {
+    override fun error(t: Throwable?) {
         log(Level.ERROR, AbstractInternalLogger.EXCEPTION_MESSAGE, t)
     }
 
     override fun isEnabled(level: InternalLogLevel): Boolean =
         isEnabled(toLevel(level))
 
-    override fun log(level: InternalLogLevel, msg: String) {
+    override fun log(level: InternalLogLevel, msg: String?) {
         log(toLevel(level), msg)
     }
 
-    override fun log(level: InternalLogLevel, format: String, arg: Any) {
+    override fun log(level: InternalLogLevel, format: String?, arg: Any?) {
         log(toLevel(level), format, arg)
     }
 
-    override fun log(level: InternalLogLevel, format: String, argA: Any, argB: Any) {
+    override fun log(level: InternalLogLevel, format: String?, argA: Any?, argB: Any?) {
         log(toLevel(level), format, argA, argB)
     }
 
-    override fun log(level: InternalLogLevel, format: String, vararg arguments: Any) {
+    override fun log(level: InternalLogLevel, format: String?, vararg arguments: Any?) {
         log(toLevel(level), format, arguments)
     }
 
-    override fun log(level: InternalLogLevel, msg: String, t: Throwable) {
+    override fun log(level: InternalLogLevel, msg: String?, t: Throwable?) {
         log(toLevel(level), msg, t)
     }
 
-    override fun log(level: InternalLogLevel, t: Throwable) {
+    override fun log(level: InternalLogLevel, t: Throwable?) {
         log(toLevel(level), AbstractInternalLogger.EXCEPTION_MESSAGE, t)
     }
 
