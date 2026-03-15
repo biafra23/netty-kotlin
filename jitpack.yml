@@ -2,4 +2,4 @@ jdk:
   - openjdk17
 
 install:
-  - mvn -B -ntp clean install -DskipTests --also-make -pl common,buffer,transport,codec-base,codec,resolver
+  - ./mvnw -B -ntp clean install -DskipTests --also-make -pl common,buffer,transport,codec-base,codec,resolver,handler
